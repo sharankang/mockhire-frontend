@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MockHire - ATS Resume Checker</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>MockHire</h1>
+    <p>Get Your ATS Score in Seconds</p>
+  </header>
+
+  <main>
+    <section class="form-section">
+      <h2>Paste Resume & JD</h2>
+      <form id="atsForm">
+        <label for="resume">Resume Text:</label>
+        <textarea id="resume" rows="10" required></textarea>
+
+        <label for="jd">Job Description:</label>
+        <textarea id="jd" rows="10" required></textarea>
+
+        <button type="submit">Analyze</button>
+      </form>
+    </section>
+
+    <section id="result" class="result-section hidden">
+      <h2>ATS Score & Suggestions</h2>
+      <p><strong>Score:</strong> <span id="score"></span>/100</p>
+      <h3>What Matched</h3>
+      <p id="match"></p>
+      <h3>Suggestions</h3>
+      <p id="suggestions"></p>
+      <button onclick="resetForm()">Try Another</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 MockHire</p>
+  </footer>
+
+  <script src="js/analyzer.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

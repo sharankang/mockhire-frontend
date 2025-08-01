@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MockHire | Auth</title>
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+  <div class="auth-container">
+    <h2 id="form-title">Sign In</h2>
+
+    <form id="auth-form">
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit" id="submit-btn">Sign In</button>
+    </form>
+
+    <p class="toggle-text">
+      Don't have an account? <a href="#" id="toggle-link">Sign Up</a>
+    </p>
+
+    <p id="auth-msg"></p>
+  </div>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>

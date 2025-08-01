@@ -1,0 +1,62 @@
+/* auth.css */
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  width: 300px;
+}
+
+.auth-container h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.auth-container input {
+  width: 100%;
+  padding: 10px;
+  margin: 0.5rem 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.auth-container button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4285F4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.auth-container button:hover {
+  background-color: #357ae8;
+}
+
+.toggle-text {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.toggle-text a {
+  color: #4285F4;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#auth-msg {
+  margin-top: 1rem;
+  text-align: center;
+  color: red;
+  font-size: 0.9rem;
+}
