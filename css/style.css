@@ -1,138 +1,154 @@
-/* body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #f4f6f8;
-    margin: 0;
-    padding: 0;
-    color: #333;
-}
-
-header {
-    background-color: #004aad;
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
-
-main {
-    padding: 40px 20px;
-    max-width: 700px;
-    margin: auto;
-}
-
-.form-section, .result-section {
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    margin: 15px 0 5px;
-}
-
-input, select {
-    width: 100%;
-    padding: 10px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-}
-
-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #004aad;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #003080;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #ddd;
-    margin-top: 40px;
-}
-
-.hidden {
-    display: none;
-} */
-
-
-
-
-
-
-
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f4f6f8;
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
 }
 
-header {
-  background-color: #004aad;
-  color: white;
+.bg-gradient {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 400px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  padding: 40px 30px;
   text-align: center;
 }
 
-main {
-  padding: 40px 20px;
-  max-width: 800px;
-  margin: auto;
+.auth-card h1,
+.home-card h1 {
+  font-size: 26px;
+  margin-bottom: 10px;
+  color: #222;
 }
 
-.form-section, .result-section {
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.form-group input:focus {
+  border-color: #6a11cb;
+  outline: none;
+}
+
+.btn-primary,
+.btn-secondary {
+  display: inline-block;
+  width: 100%;
+  text-decoration: none;
+  padding: 12px;
+  margin-top: 10px;
+  background: #6a11cb;
+  color: #fff;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  background: #2575fc;
+}
+
+.home-card .nav-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+
+
+/* comment */
+
+.tabs {
+  display: flex;
+  justify-content: center;
   margin-bottom: 20px;
 }
 
-label {
-  display: block;
-  margin: 15px 0 5px;
-}
-
-textarea {
-  width: 100%;
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  resize: vertical;
-}
-
-button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #004aad;
-  color: white;
+.tab-button {
+  background: none;
   border: none;
-  border-radius: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 10px 20px;
   cursor: pointer;
+  color: #666;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s, color 0.3s;
 }
 
-button:hover {
-  background-color: #003080;
+.tab-button.active {
+  color: #6a11cb;
+  border-color: #6a11cb;
 }
 
-footer {
-  text-align: center;
+.tab-button:hover {
+  color: #2575fc;
+}
+
+
+
+
+.ats-card {
+  max-width: 500px;
+  margin: auto;
   padding: 20px;
-  background-color: #ddd;
-  margin-top: 40px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  overflow: auto;       /* allow scroll if content too large */
+  max-height: 80vh;     /* limit card height so it doesn’t grow forever */
+  word-wrap: break-word; /* wrap long words */
 }
 
-.hidden {
-  display: none;
+#result pre {
+  white-space: pre-wrap;   /* keep formatting but wrap lines */
+  word-wrap: break-word;
+  font-size: 0.9em;
+  margin-top: 10px;
 }
+
+#validationResult {
+  margin-top: 15px;
+  color: red;
+}
+
+
+
+
+
+
+
+

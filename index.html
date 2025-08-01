@@ -2,45 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>MockHire - ATS Resume Checker</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mockhire - Authentication</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-  <header>
-    <h1>MockHire</h1>
-    <p>Get Your ATS Score in Seconds</p>
-  </header>
+<body class="bg-gradient">
+  <div class="container">
+    <div class="card auth-card">
+      <h1>Welcome to Mockhire</h1>
+      <p class="subtitle">Your virtual trainer for interview preparation</p>
 
-  <main>
-    <section class="form-section">
-      <h2>Paste Resume & JD</h2>
-      <form id="atsForm">
-        <label for="resume">Resume Text:</label>
-        <textarea id="resume" rows="10" required></textarea>
+      <div class="tabs">
+        <button class="tab-button active" id="showSignIn">Sign In</button>
+        <button class="tab-button" id="showSignUp">Sign Up</button>
+      </div>
 
-        <label for="jd">Job Description:</label>
-        <textarea id="jd" rows="10" required></textarea>
-
-        <button type="submit">Analyze</button>
+      <form id="signInForm">
+        <div class="form-group">
+          <input type="text" id="signin-username" placeholder="Username">
+        </div>
+        <div class="form-group">
+          <input type="password" id="signin-password" placeholder="Password">
+        </div>
+        <button type="submit" class="btn-primary">Sign In</button>
       </form>
-    </section>
 
-    <section id="result" class="result-section hidden">
-      <h2>ATS Score & Suggestions</h2>
-      <p><strong>Score:</strong> <span id="score"></span>/100</p>
-      <h3>What Matched</h3>
-      <p id="match"></p>
-      <h3>Suggestions</h3>
-      <p id="suggestions"></p>
-      <button onclick="resetForm()">Try Another</button>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 MockHire</p>
-  </footer>
-
-  <script src="js/analyzer.js"></script>
+      <form id="signUpForm" style="display: none;">
+        <div class="form-group">
+          <input type="text" id="signup-username" placeholder="Username">
+        </div>
+        <div class="form-group">
+          <input type="email" id="signup-email" placeholder="Email">
+        </div>
+        <div class="form-group">
+          <input type="password" id="signup-password" placeholder="Password">
+        </div>
+        <button type="submit" class="btn-primary">Sign Up</button>
+      </form>
+    </div>
+  </div>
   <script src="js/script.js"></script>
 </body>
 </html>
