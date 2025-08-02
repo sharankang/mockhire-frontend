@@ -35,7 +35,22 @@ ${text}`;
     console.log("Gemini output:", output);
 
     if(output.includes("valid")) {
-      localStorage.setItem("resumeText", text); // save for next page
+      //localStorage.setItem("resumeText", text); // save for next page
+
+
+      const resumeList = JSON.parse(localStorage.getItem("resumeList") || "[]");
+      resumeList.push({
+        filename: file.name,
+        date: new Date().toLocaleString()
+      });
+      localStorage.setItem("resumeList", JSON.stringify(resumeList));
+      localStorage.setItem("resumeText", text);
+
+
+
+
+
+//////////////
       window.location.href = "jd.html";
     } else {
       resultEl.textContent = "Missing keywords: " + output;

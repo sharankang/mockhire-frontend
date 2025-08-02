@@ -148,6 +148,31 @@ html, body {
 
 
 
+/* */
+ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.delete-btn {
+  margin-left: 10px;
+  padding: 2px 6px;
+  font-size: 0.8em;
+  color: white;
+  background: #d9534f;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: #c9302c;
+}
+
+
+
+
+
 
 
 
