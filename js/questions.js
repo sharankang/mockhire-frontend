@@ -1,6 +1,6 @@
 import { GoogleGenerativeAI } from "https://esm.run/@google/generative-ai";
 
-const API_KEY = "AIzaSyDvqpCfM5Obdh4eBb1YIVZzt7qnhnPy_l8";
+const API_KEY = "ADD_GEMINI_API_KEY";
 const genAI = new GoogleGenerativeAI(API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest" });
 
@@ -30,7 +30,6 @@ ${jdText}`;
     const output = (await res.response.text()).trim();
     console.log("Gemini output:", output);
 
-    // Display nicely
     resultEl.innerHTML = `
       <div class="suggestions-title">Suggested Interview Questions:</div>
       <div class="suggestions-text">${output}</div>
@@ -41,7 +40,6 @@ ${jdText}`;
   }
 });
 
-// PDF.js reader
 async function extractTextFromPDF(file) {
   return new Promise((resolve) => {
     const reader = new FileReader();

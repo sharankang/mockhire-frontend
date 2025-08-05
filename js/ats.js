@@ -1,6 +1,6 @@
 import { GoogleGenerativeAI } from "https://esm.run/@google/generative-ai";
 
-const API_KEY = "AIzaSyDvqpCfM5Obdh4eBb1YIVZzt7qnhnPy_l8"; 
+const API_KEY = "ADD_GEMINI_API_KEY"; 
 const genAI = new GoogleGenerativeAI(API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest" });
 
@@ -15,7 +15,7 @@ document.getElementById("resumeForm").addEventListener("submit", async function(
   }
 
   const file = fileInput.files[0];
-  resultEl.textContent = "Reading PDF...";  // feedback
+  resultEl.textContent = "Reading PDF..."; 
   const text = await extractTextFromPDF(file);
 
   if(!text) {
@@ -23,7 +23,7 @@ document.getElementById("resumeForm").addEventListener("submit", async function(
     return;
   }
 
-  resultEl.textContent = "Checking resume with AI...";  // feedback
+  resultEl.textContent = "Checking resume with AI...";
 
   const prompt = `Check if this resume text includes these keywords: "Skills", "Experience", "Education". 
 List missing keywords, or say "valid" if all are present. Resume text:
@@ -35,9 +35,6 @@ ${text}`;
     console.log("Gemini output:", output);
 
     if(output.includes("valid")) {
-      //localStorage.setItem("resumeText", text); // save for next page
-
-
       const resumeList = JSON.parse(localStorage.getItem("resumeList") || "[]");
       resumeList.push({
         filename: file.name,

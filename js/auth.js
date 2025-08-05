@@ -1,11 +1,9 @@
-// auth.js
-
 const signInBtn = document.getElementById("signInBtn");
 const signUpBtn = document.getElementById("signUpBtn");
 const authForm = document.getElementById("authForm");
 const authMessage = document.getElementById("authMessage");
 
-let mode = "signin"; // default mode
+let mode = "signin";
 
 signInBtn.addEventListener("click", () => {
   mode = "signin";

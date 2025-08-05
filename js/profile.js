@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  // Build list
   const ul = document.createElement("ul");
   resumeList.forEach((resume, index) => {
     const li = document.createElement("li");
@@ -18,16 +17,15 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
     ul.appendChild(li);
   });
-  listEl.innerHTML = ""; // clear "Loading..."
   listEl.appendChild(ul);
 
-  // Add delete buttons
+
   document.querySelectorAll(".delete-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       const idx = btn.getAttribute("data-index");
       resumeList.splice(idx, 1);
       localStorage.setItem("resumeList", JSON.stringify(resumeList));
-      location.reload(); // reload page to update list
+      location.reload(); 
     });
   });
 });

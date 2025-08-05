@@ -13,7 +13,7 @@ body {
   scroll-behavior: smooth;
 }
 
-/* =============== COMMON COMPONENTS =============== */
+
 .brand {
   color: #C5B0CD;
 }
@@ -38,7 +38,7 @@ h1 {
   margin-bottom: 25px;
 }
 
-/* =============== HERO SECTION =============== */
+
 .hero {
   background: url('../images/hero-bg.jpg') no-repeat center center/cover;
   height: 100vh;
@@ -68,7 +68,7 @@ h1 {
   text-align: center;
 }
 
-/* =============== NAV SECTION BELOW HERO =============== */
+
 .nav-section {
   background: linear-gradient(135deg, #F3E2D4, #C5B0CD);
   padding: 50px 20px;
@@ -99,7 +99,7 @@ h1 {
   background: #a68fb3;
 }
 
-/* =============== ABOUT & FEATURES SECTIONS =============== */
+
 .about {
   text-align: center;
   margin-bottom: 40px;
@@ -150,14 +150,14 @@ h1 {
   color: #415E72;
 }
 
-/* Responsive: 3 columns on wider screens */
+
 @media(min-width: 700px) {
   .feature-cards {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-/* =============== FOOTER =============== */
+
 .footer {
   text-align: center;
   padding: 20px;
@@ -175,11 +175,7 @@ h1 {
   text-decoration: underline;
 }
 
-/* =====================================================
-   ADDING BACK STYLES FOR ATS, PROFILE & INTERVIEW PAGES
-===================================================== */
 
-/* Common card style for those pages */
 .ats-card, .auth-card {
   background: #fff;
   border-radius: 20px;
@@ -202,7 +198,6 @@ h1 {
   color: #415E72;
 }
 
-/* Inputs & Textareas */
 input[type="file"], input[type="text"], input[type="password"], textarea {
   width: 100%;
   padding: 14px;
@@ -216,7 +211,7 @@ textarea {
   resize: vertical;
 }
 
-/* Primary Button */
+
 .btn-primary {
   background: #C5B0CD;
   color: #17313E;
@@ -235,7 +230,7 @@ textarea {
   background: #a68fb3;
 }
 
-/* Results / Suggestions / Scores */
+
 #result pre, .suggestions-text {
   background: #f9f7f6;
   border-radius: 10px;
@@ -262,14 +257,14 @@ textarea {
   margin-bottom: 8px;
 }
 
-/* Lists inside suggestions */
+
 ul {
   list-style-type: disc;
   margin-left: 25px;
   font-size: 18px;
 }
 
-/* Profile delete button */
+/* Profile deletion */
 .delete-btn {
   background: #d9534f;
   color: #fff;
@@ -287,7 +282,6 @@ ul {
 
 
 
-/* Auth page full screen center */
 .auth-container {
   display: flex;
   justify-content: center;
@@ -297,7 +291,6 @@ ul {
   padding: 20px;
 }
 
-/* Card */
 .auth-card {
   background: #fff;
   border-radius: 20px;
@@ -308,7 +301,7 @@ ul {
   text-align: center;
 }
 
-/* Title inside card */
+
 .auth-card h1 {
   font-size: 32px;
   margin-bottom: 10px;
@@ -321,7 +314,7 @@ ul {
   margin-bottom: 25px;
 }
 
-/* Toggle buttons styled like tabs */
+
 .toggle-buttons {
   display: flex;
   justify-content: center;
@@ -348,7 +341,7 @@ ul {
   color: white;
 }
 
-/* Inputs */
+
 #authForm input {
   width: 100%;
   padding: 12px;
@@ -358,7 +351,7 @@ ul {
   border-radius: 8px;
 }
 
-/* Sign in/up button */
+
 #authForm button.btn-primary {
   width: 100%;
   font-size: 18px;
