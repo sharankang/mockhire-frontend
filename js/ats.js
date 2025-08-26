@@ -1,6 +1,22 @@
 import { GoogleGenerativeAI } from "https://esm.run/@google/generative-ai";
 
-const API_KEY = "ADD_GEMINI_API_KEY";  //please add your own API key :)
+// Redirect if not logged in
+if (localStorage.getItem("isLoggedIn") !== "true") {
+  alert("You must log in first.");
+  window.location.href = "login.html";
+}
+
+const activeUser = localStorage.getItem("activeUser");
+let users = JSON.parse(localStorage.getItem("mockhireUsers") || "{}");
+
+if (!activeUser || !users[activeUser]) {
+  alert("Invalid session. Please log in again.");
+  localStorage.removeItem("isLoggedIn");
+  localStorage.removeItem("activeUser");
+  window.location.href = "login.html";
+}
+
+const API_KEY = "placeholder_for_api_key";
 const genAI = new GoogleGenerativeAI(API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest" });
 
@@ -15,7 +31,7 @@ document.getElementById("resumeForm").addEventListener("submit", async function(
   }
 
   const file = fileInput.files[0];
-  resultEl.textContent = "Reading PDF..."; 
+  resultEl.textContent = "Reading PDF...";
   const text = await extractTextFromPDF(file);
 
   if(!text) {
@@ -35,19 +51,12 @@ ${text}`;
     console.log("Gemini output:", output);
 
     if(output.includes("valid")) {
-      const resumeList = JSON.parse(localStorage.getItem("resumeList") || "[]");
-      resumeList.push({
+      users[activeUser].resumes.push({
         filename: file.name,
-        date: new Date().toLocaleString()
+        date: new Date().toLocaleString(),
+        text: text
       });
-      localStorage.setItem("resumeList", JSON.stringify(resumeList));
-      localStorage.setItem("resumeText", text);
-
-
-
-
-
-//////////////
+      localStorage.setItem("mockhireUsers", JSON.stringify(users));
       window.location.href = "jd.html";
     } else {
       resultEl.textContent = "Missing keywords: " + output;

@@ -37,15 +37,20 @@ authForm.addEventListener("submit", (e) => {
     if (users[username]) {
       authMessage.textContent = "Username already exists.";
     } else {
-      users[username] = password;
+      users[username] = {
+        password: password,
+        resumes: [] // each user has their own resume list
+      };
       localStorage.setItem("mockhireUsers", JSON.stringify(users));
       authMessage.textContent = "Sign up successful! Please sign in.";
-      signInBtn.click(); // switch to sign in mode
+      signInBtn.click();
     }
   } else if (mode === "signin") {
-    if (users[username] && users[username] === password) {
+    if (users[username] && users[username].password === password) {
       authMessage.textContent = "Login successful!";
-      window.location.href = "home.html";
+      localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("activeUser", username); // track who’s logged in
+      window.location.href = "index.html";
     } else {
       authMessage.textContent = "Invalid username or password.";
     }
