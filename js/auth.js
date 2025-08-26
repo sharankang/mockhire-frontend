@@ -39,7 +39,7 @@ authForm.addEventListener("submit", (e) => {
     } else {
       users[username] = {
         password: password,
-        resumes: [] // each user has their own resume list
+        resumes: []
       };
       localStorage.setItem("mockhireUsers", JSON.stringify(users));
       authMessage.textContent = "Sign up successful! Please sign in.";
@@ -49,7 +49,7 @@ authForm.addEventListener("submit", (e) => {
     if (users[username] && users[username].password === password) {
       authMessage.textContent = "Login successful!";
       localStorage.setItem("isLoggedIn", "true");
-      localStorage.setItem("activeUser", username); // track who’s logged in
+      localStorage.setItem("activeUser", username);
       window.location.href = "index.html";
     } else {
       authMessage.textContent = "Invalid username or password.";
