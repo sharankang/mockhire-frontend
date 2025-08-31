@@ -1,6 +1,5 @@
 import { GoogleGenerativeAI } from "https://esm.run/@google/generative-ai";
 
-// Redirect if not logged in
 if (localStorage.getItem("isLoggedIn") !== "true") {
   alert("You must log in first.");
   window.location.href = "login.html";
@@ -16,17 +15,13 @@ if (!activeUser || !users[activeUser]) {
   window.location.href = "login.html";
 }
 
-const API_KEY = "placeholder_for_api_key";
-const genAI = new GoogleGenerativeAI(API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest" });
-
 document.getElementById("resumeForm").addEventListener("submit", async function(e) {
   e.preventDefault();
   const fileInput = document.getElementById("resumeFile");
   const resultEl = document.getElementById("validationResult");
 
   if(fileInput.files.length === 0) {
-    resultEl.textContent = "Please select a PDF file.";
+    resultEl.textContent = "Please select a PDF file!";
     return;
   }
 
@@ -35,46 +30,37 @@ document.getElementById("resumeForm").addEventListener("submit", async function(
   const text = await extractTextFromPDF(file);
 
   if(!text) {
-    resultEl.textContent = "Could not read PDF.";
+    resultEl.textContent = "❌ Could not read PDF.";
     return;
   }
 
-  resultEl.textContent = "Checking resume with AI...";
+  const requiredSections = ["education", "skills"];
+  const missing = requiredSections.filter(section => !text.toLowerCase().includes(section));
 
-  const prompt = `Check if this resume text includes these keywords: "Skills", "Experience", "Education". 
-List missing keywords, or say "valid" if all are present. Resume text:
-${text}`;
-
-  try {
-    const res = await model.generateContent(prompt);
-    const output = res.response.text().trim().toLowerCase();
-    console.log("Gemini output:", output);
-
-    if(output.includes("valid")) {
-      users[activeUser].resumes.push({
-        filename: file.name,
-        date: new Date().toLocaleString(),
-        text: text
-      });
-      localStorage.setItem("mockhireUsers", JSON.stringify(users));
-      window.location.href = "jd.html";
-    } else {
-      resultEl.textContent = "Missing keywords: " + output;
-    }
-  } catch (err) {
-    console.error("Error:", err);
-    resultEl.textContent = "Error checking resume.";
+  if (missing.length > 0) {
+    resultEl.textContent = "⚠️ Missing sections: " + missing.join(", ");
+    return;
   }
+
+  localStorage.setItem("resumeText", text);
+
+  users[activeUser].resumes.push({
+    filename: file.name,
+    date: new Date().toLocaleString(),
+    text: text
+  });
+  localStorage.setItem("mockhireUsers", JSON.stringify(users));
+
+  window.location.href = "jd.html";
 });
 
-// PDF.js extraction
 async function extractTextFromPDF(file) {
   return new Promise((resolve) => {
     const reader = new FileReader();
     reader.onload = async function() {
       try {
         const typedarray = new Uint8Array(this.result);
-        const pdf = await pdfjsLib.getDocument(typedarray).promise;
+        const pdf = await pdfjsLib.getDocument({ data: typedarray }).promise;
         let text = "";
         for(let i=1; i<=pdf.numPages; i++) {
           const page = await pdf.getPage(i);
@@ -82,7 +68,7 @@ async function extractTextFromPDF(file) {
           const strings = content.items.map(item => item.str);
           text += strings.join(" ") + "\n";
         }
-        resolve(text);
+        resolve(text.trim());
       } catch(e) {
         console.error(e);
         resolve(null);

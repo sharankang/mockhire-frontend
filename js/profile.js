@@ -1,4 +1,3 @@
-// Redirects if not logged in
 if (localStorage.getItem("isLoggedIn") !== "true") {
   alert("You must log in first.");
   window.location.href = "login.html";

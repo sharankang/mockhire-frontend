@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (isLoggedIn) {
     // Show Logout
     authBtn.textContent = "Log Out";
-    authBtn.href = "#"; // prevent going to login
-    getStartedBtn.style.display = "none"; // hide "Get Started" button
+    authBtn.href = "#";
+    getStartedBtn.style.display = "none";
 
     authBtn.addEventListener("click", () => {
       localStorage.setItem("isLoggedIn", "false");
@@ -16,9 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
   } else {
-    // Show Sign In
     authBtn.textContent = "Sign In";
     authBtn.href = "login.html";
-    getStartedBtn.style.display = "block"; // make sure button is visible
+    getStartedBtn.style.display = "block";
   }
 });
