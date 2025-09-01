@@ -30,7 +30,7 @@ document.getElementById("resumeForm").addEventListener("submit", async function(
   const text = await extractTextFromPDF(file);
 
   if(!text) {
-    resultEl.textContent = "❌ Could not read PDF.";
+    resultEl.textContent = "Could not read PDF.";
     return;
   }
 
@@ -38,7 +38,7 @@ document.getElementById("resumeForm").addEventListener("submit", async function(
   const missing = requiredSections.filter(section => !text.toLowerCase().includes(section));
 
   if (missing.length > 0) {
-    resultEl.textContent = "⚠️ Missing sections: " + missing.join(", ");
+    resultEl.textContent = "Missing sections: " + missing.join(", ");
     return;
   }
 

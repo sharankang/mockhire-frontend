@@ -22,17 +22,17 @@ document.getElementById("jdForm").addEventListener("submit", async function (e) 
   }
 
   if (!jdText) {
-    resultEl.textContent = "⚠️ Please upload JD PDF or paste text.";
+    resultEl.textContent = "Please upload JD PDF or paste text.";
     return;
   }
 
   const resumeText = localStorage.getItem("resumeText");
   if (!resumeText) {
-    resultEl.textContent = "❌ Resume not found. Please upload resume again.";
+    resultEl.textContent = "Resume not found. Please upload resume again.";
     return;
   }
 
-  resultEl.textContent = "🤖 Evaluating with AI...";
+  resultEl.textContent = "Evaluating with AI...";
   const prompt = `
   You are an ATS evaluator. Compare this resume against this job description.
   
@@ -64,7 +64,7 @@ document.getElementById("jdForm").addEventListener("submit", async function (e) 
     resultEl.innerHTML = marked.parse(output);
   } catch (err) {
     console.error("Gemini error:", err);
-    resultEl.textContent = "❌ Error evaluating resume.";
+    resultEl.textContent = "Error evaluating resume.";
   }
 });
 
